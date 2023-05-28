@@ -102,12 +102,12 @@ To use this Docker image, follow these steps:
 ./run wax-api
 ```
   - You can verify the services are registered and running by executing `pm2 list`
-  ┌────┬────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
-  │ id │ name           │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
-  ├────┼────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
-  │ 1  │ wax-api        │ wax         │ 3.3.6   │ cluster │ 1129     │ 44h    │ 0    │ online    │ 0%       │ 93.1mb   │ root     │ disabled │
-  │ 0  │ wax-indexer    │ wax         │ 3.3.6   │ fork    │ 890      │ 44h    │ 0    │ online    │ 0%       │ 106.4mb  │ root     │ disabled │
-  └────┴────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+  
+  | id | name          | namespace | version  | mode    | pid | uptime | ↺   | status  | cpu   | mem     | user  | watching |
+  |----|---------------|-----------|----------|---------|-----|--------|-----|---------|-------|---------|-------|----------|
+  | 1  | wax-api       | wax       | 3.3.9-6  | cluster | 1129| 44h    | 0   | online  | 0%    | 93.1mb  | root  | disabled |
+  | 0  | wax-indexer   | wax       | 3.3.9-6  | fork    | 890 | 44h    | 0   | online  | 0%    | 106.4mb | root  | disabled |
+
 
 7. Access the services: (*Please Note you can make this accessible by proxy externally* [documenation](http://wiki.oiac.io/haproxy/))
    - Elasticsearch: Access Elasticsearch at `http://localhost:9200`.
