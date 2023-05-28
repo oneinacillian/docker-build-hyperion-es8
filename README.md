@@ -16,8 +16,11 @@ This Docker project provides a containerized environment with Elasticsearch, Kib
 
 - Custom Elasticsearch configuration settings applied:
   - Data and log paths
+    * Elasticsearch data path will be set as /data/es-data
+    * Elasticseach log path will be set as /data/es-logs
   - Cluster settings
   - JVM options
+    * 31G static configuration
   - SSL disabled
 - Bootstrap password for Elasticsearch is set using the `ELASTIC_PASSWORD` argument.
 
@@ -31,7 +34,7 @@ This Docker project provides a containerized environment with Elasticsearch, Kib
 
 ### RabbitMQ Configuration
 
-- Default user, password, and vhost settings defined in the `rabbitmq.conf` file.
+- Default user, password, and vhost settings defined in the `rabbitmq.conf` file. Please see arguments passed for the username and password in the Dockerfile
 
 ### Hyperion Application
 
@@ -50,11 +53,11 @@ This Docker project provides a containerized environment with Elasticsearch, Kib
 
 To use this Docker image, follow these steps:
 
-1. Configure any necessary environment variables in the Dockerfile.
+1. Configure any necessary Arguments in the Dockerfile.
 2. Build the image
 3. Run the Docker container using the appropriate command or Docker Compose (look at examples below)
-4. Provide the necessary connections.json (for access the state history) in your hyperion root app and wax.config.json in your chain config for your API and Indexer
-5. When the connections to state-history has been satisfied (valid backend) and chain config for WAX, you can register and run wax-indexer and wax-api from your Hyperion App
+4. Provide the necessary connections.json in your hyperion root app and wax.config.json in your chain config for your API and Indexer
+5. When the connections and chain config for WAX, you can register and run wax-indexer and wax-api from your Hyperion App
 ```bash
 # Start WAX indexer
 ./run wax-indexer
@@ -85,6 +88,8 @@ docker build -t your-image:tag -f ./your-dockerfile
 docker run -d --name your-container --publish 7000:7000 --publish 5601:5601 --publish 15672:15672 --publish 1234:1234 --tty your-image:tag
 
 # Run the Docker container using mapped docker volumes (i.e. additional disk type to store large data sets)
-
 docker run -d --name your-container --publish 7000:7000 --publish 5601:5601 --publish 15672:15672 --publish 1234:1234 --mount source=hyperiontestnet,target=/data --tty your-image:tag
+
+# Run the Docker container using mapped docker volumes (i.e. additional disk type to store large data sets) and on restricted to loopback interface
+docker run -d --name your-container --publish 127.0.0.1:7000:7000 --publish 127.0.0.1:5601:5601 --publish 127.0.0.1:15672:15672 --publish 127.0.0.1:1234:1234 --mount source=hyperiontestnet,target=/data --tty your-image:tag
 
