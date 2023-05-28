@@ -1,0 +1,34 @@
+{
+    "amqp": {
+      "host": "127.0.0.1:5672",
+      "api": "127.0.0.1:15672",
+      "protocol": "http",
+      "user": "<ARG>",
+      "pass": "<ARG>",
+      "vhost": "hyperion",
+      "frameMax": "0x10000"
+    },
+    "elasticsearch": {
+      "protocol": "http",
+      "host": "127.0.0.1:9200",
+      "ingest_nodes": [
+        "127.0.0.1:9200"
+      ],
+      "user": "<ARG>",
+      "pass": "<ARG>"
+    },
+    "redis": {
+      "host": "127.0.0.1",
+      "port": "6379"
+    },
+    "chains": {
+      "wax": {
+        "name": "Wax",
+        "ship": "ws://172.168.40.50:29876",
+        "http": "http://172.168.40.50:28888",
+        "chain_id": "f16b1833c747c43682f4386fca9cbb327929334a762755ebec17f6f23c9b8a12",
+        "WS_ROUTER_HOST": "127.0.0.1",
+        "WS_ROUTER_PORT": 7001
+      }
+    }
+  }

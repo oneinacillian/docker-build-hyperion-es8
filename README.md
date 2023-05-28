@@ -101,7 +101,7 @@ To use this Docker image, follow these steps:
 # Start WAX API
 ./run wax-api
 ```
-7. Access the services:
+7. Access the services: (*Please Note you can make this accessible by proxy externally* [documenation](http://wiki.oiac.io/haproxy/))
    - Elasticsearch: Access Elasticsearch at `http://localhost:9200`.
    - Kibana: Access Kibana at `http://localhost:5601`.
    - Hyperion: Navigate to the Hyperion application within the container.
