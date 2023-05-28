@@ -43,7 +43,7 @@ RUN PASSWORD=$(cat /tmp/test.file | grep -oP 'New value: \K.*' | sed -e 's/^[[:s
 && echo 'server.host: "0.0.0.0"' >> /etc/kibana/kibana.yml
 
 # Install Node.js 16.x
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
     apt-get -y install nodejs && \
     rm -rf /var/lib/apt/lists/*
 

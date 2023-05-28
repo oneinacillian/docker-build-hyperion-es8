@@ -8,7 +8,7 @@ This Docker project provides a containerized environment with Elasticsearch, Kib
 
 - Elasticsearch 8.x: Powerful search and analytics engine
 - Kibana: Web interface for Elasticsearch data visualization and management
-- Node.js 16.x: JavaScript runtime for running Node.js applications
+- Node.js 18.x: JavaScript runtime for running Node.js applications
 - Redis: In-memory data structure store
 - RabbitMQ: Message broker and queue manager
 
